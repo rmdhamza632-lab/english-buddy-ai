@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b18"><meta name="description" content="Practice English with your personal AI speaking partner.">
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon.svg">
+  <link rel="stylesheet" href="/styles.css"><title>English Buddy AI</title>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span><span>English Buddy <i>AI</i></span></a>
+    <div class="side-label">LEARN</div>
+    <button class="nav active" data-view="home"><span>⌂</span> Dashboard</button>
+    <button class="nav" data-view="tutor"><span>◉</span> AI Speaking</button>
+    <button class="nav" data-view="vocab"><span>▤</span> Vocabulary</button>
+    <button class="nav" data-view="grammar"><span>✎</span> Grammar Lab</button>
+    <button class="nav" data-view="quiz"><span>✧</span> Quick Quiz</button>
+    <div class="sidebar-bottom"><div class="streak"><span>🔥</span><div><b>Keep your streak alive</b><small>Practice a little every day.</small></div></div><small class="muted">YOUR PERSONAL ENGLISH COACH</small></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><button class="mobile-brand">✦ English Buddy AI</button><div class="top-spacer"></div><span class="level-chip" id="header-level">✦ BEGINNER</span><button class="auth-button" id="auth-open">Sign up / Log in</button><button class="avatar" id="profile-avatar">E</button></header>
+    <section class="view active" id="home">
+      <div class="welcome"><div><p class="eyebrow">MONDAY · YOUR DAILY PRACTICE</p><h1>Make English<br><span>your superpower.</span></h1><p class="sub">Build confidence one conversation at a time.</p><button class="primary" data-go="tutor">Start speaking <span>→</span></button></div><div class="hero-orb"><div class="orb-core">✦</div><span class="orbit o1"></span><span class="orbit o2"></span><span class="orbit o3"></span><div class="orb-caption">YOUR AI<br>COMPANION</div></div></div>
+      <div class="section-head"><div><p class="eyebrow">YOUR OVERVIEW</p><h2>Learning snapshot</h2></div><span class="muted">A little progress adds up.</span></div>
+      <div class="stats"><article class="stat"><span class="stat-icon violet">◷</span><small>Practice time</small><strong id="minutes">0 <em>min</em></strong><span class="muted">This session</span></article><article class="stat"><span class="stat-icon blue">▤</span><small>Words explored</small><strong id="learned">0</strong><span class="muted">Keep discovering</span></article><article class="stat"><span class="stat-icon pink">✧</span><small>Quiz score</small><strong id="score">—</strong><span class="muted">Your latest result</span></article></div>
+      <div class="section-head"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Today's path</h2></div></div>
+      <div class="path-grid"><button class="path-card" data-go="tutor"><span class="path-symbol">◉</span><b>Speak with AI</b><small>Real conversations. Helpful corrections.</small><span class="path-arrow">↗</span></button><button class="path-card" data-go="vocab"><span class="path-symbol">▤</span><b>Grow your vocabulary</b><small>Useful words for everyday fluency.</small><span class="path-arrow">↗</span></button><button class="path-card" data-go="grammar"><span class="path-symbol">✎</span><b>Polish your grammar</b><small>Clear lessons, practical examples.</small><span class="path-arrow">↗</span></button></div>
+    </section>
+    <section class="view" id="tutor">
+      <div class="page-heading"><p class="eyebrow">YOUR PERSONAL SPEAKING PARTNER</p><h1>AI Speaking <span>Studio</span></h1><p class="sub">Talk naturally. Make mistakes. Get better.</p></div>
+      <div class="tutor-layout"><div class="chat-panel"><div class="chat-head"><div class="ai-avatar">✦</div><div><b>Buddy</b><small><span class="online-dot"></span> English coach · Ready to practice</small></div><span class="chat-tag">LIVE AI</span></div><div class="level-bar"><label for="study-level">Your level</label><select id="study-level"><option value="Beginner">Level 1 · Beginner</option><option value="Elementary">Level 2 · Elementary</option><option value="Intermediate">Level 3 · Intermediate</option><option value="Upper-Intermediate">Level 4 · Upper-Intermediate</option><option value="Advanced">Level 5 · Advanced</option><option value="Expert">Level 6 · Expert</option></select><span id="level-hint">Start with simple everyday English.</span></div><div class="chat-messages" id="messages"><div class="bubble-row"><div class="ai-mini">✦</div><div class="bubble ai-bubble">Hi! I'm Buddy, your English speaking partner. 😊<br><br>Let's have a conversation. Tell me about your day, or choose a topic to get started.</div></div></div><div class="example-box"><b>Not sure what to say? Try an example:</b><p id="example-sentence">“Hello! My name is ___. I live in Bangladesh.”</p><button type="button" id="use-example">Use this sentence ↗</button><button type="button" id="new-example">New example ↻</button></div><div class="suggestions"><button>My daily routine</button><button>Travel plans</button><button>Job interview</button></div><form id="chat-form" class="chat-input"><input id="message-input" placeholder="Type a message in English..." autocomplete="off"><button type="button" class="mic-btn" id="mic" title="Speak">🎙</button><button class="send-btn" aria-label="Send">↑</button></form><div class="chat-foot">Buddy gently corrects mistakes and explains difficult words.</div></div><aside class="coach-card"><div class="coach-glow">✦</div><p class="eyebrow">TODAY'S TIP</p><h3>Don't aim for perfect. Aim for progress.</h3><p>Try to answer in complete sentences. Your AI coach will help you improve naturally.</p><div class="divider"></div><b>Conversation starters</b><button class="starter">What do you enjoy doing on weekends? <span>→</span></button><button class="starter">Describe a place you want to visit. <span>→</span></button><button class="starter">What are your goals this year? <span>→</span></button><p class="tiny-note">Voice features depend on your browser. AI replies require a connected server.</p></aside></div>
+    </section>
+    <section class="view" id="vocab">
+      <div class="page-heading"><p class="eyebrow">WORD POWER</p><h1>Build a richer <span>vocabulary.</span></h1><p class="sub">Explore useful words, learn their meaning, and save the ones you love.</p></div>
+      <div class="toolbar"><div class="searchbox">⌕ <input id="word-search" placeholder="Search words..."></div><select id="word-level"><option value="all">All levels</option><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Upper-Intermediate</option><option>Advanced</option><option>Expert</option><option>Everyday</option></select></div><p class="sub" id="vocab-count">Explore a growing library of 10,000+ words and useful expressions.</p><div class="word-grid" id="word-grid"></div><button class="primary" id="more-words">Load 20 more words ↻</button>
+    </section>
+    <section class="view" id="grammar">
+      <div class="page-heading"><p class="eyebrow">GRAMMAR LAB</p><h1>Speak with <span>clarity.</span></h1><p class="sub">Short, practical lessons for confident communication.</p></div>
+      <div class="lesson-list">
+        <article class="lesson"><span class="lesson-num">01</span><div><small>FOUNDATION</small><h3>Present Simple vs. Present Continuous</h3><p>Use the present simple for routines and facts; use the present continuous for actions happening now.</p><div class="example">“I work every day.” · “I am working right now.”</div></div><span class="lesson-level">Beginner</span></article>
+        <article class="lesson"><span class="lesson-num">02</span><div><small>COMMON MISTAKES</small><h3>Much vs. Many</h3><p>Use <b>many</b> with countable nouns and <b>much</b> with uncountable nouns.</p><div class="example">“How many books?” · “How much time?”</div></div><span class="lesson-level">Beginner</span></article>
+        <article class="lesson"><span class="lesson-num">03</span><div><small>ADVANCED</small><h3>Although vs. Despite</h3><p>Although is followed by a subject and verb. Despite is followed by a noun or gerund.</p><div class="example">“Although it rained...” · “Despite the rain...”</div><div class="translation">বাংলা অর্থ: যদিও / তা সত্ত্বেও</div></div><span class="lesson-level advanced">Advanced</span></article>
+        <article class="lesson"><span class="lesson-num">04</span><div><small>ADVANCED</small><h3>Subtle vs. Delicate</h3><p>Subtle means not obvious or easy to notice. Delicate means fragile, sensitive, or requiring care.</p><div class="example">“A subtle difference.” · “A delicate situation.”</div><div class="translation">বাংলা অর্থ: সূক্ষ্ম / নাজুক</div></div><span class="lesson-level advanced">Advanced</span></article>
+      </div>
+    </section>
+    <section class="view" id="quiz">
+      <div class="page-heading"><p class="eyebrow">A QUICK CHALLENGE</p><h1>Test what you <span>know.</span></h1><p class="sub">Choose the best answer. Learn from every question.</p></div>
+      <div class="quiz-card" id="quiz-card"><div class="quiz-progress"><span id="quiz-count">QUESTION 1 OF 5</span><span id="quiz-percent">0%</span></div><div class="progress-track"><i id="quiz-bar"></i></div><h2 id="question">Choose the correct sentence.</h2><div class="answers" id="answers"></div><p id="quiz-feedback" class="feedback"></p><button class="primary" id="next-question" disabled>Continue <span>→</span></button></div>
+    </section>
+    <footer>© 2026 English Buddy AI <span>Learn boldly. Speak confidently.</span></footer>
+  </main>
+</div>
+<div class="auth-modal" id="auth-modal" aria-hidden="true"><div class="auth-card"><button class="auth-close" id="auth-close" aria-label="Close">×</button><p class="eyebrow">YOUR PERSONAL LEARNING SPACE</p><h2 id="auth-title">Create your account</h2><p class="auth-copy">Save your progress and continue learning.</p><form id="auth-form"><label for="auth-email">Email address</label><input id="auth-email" type="email" required placeholder="you@example.com"><label for="auth-password">Password</label><input id="auth-password" type="password" required minlength="6" placeholder="At least 6 characters"><button class="primary" id="auth-submit">Create account →</button></form><button class="auth-switch" id="auth-switch">Already have an account? Log in</button><p class="tiny-note" id="auth-note">Secure account sign-up requires Supabase settings on the server.</p></div></div>
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body></html>
