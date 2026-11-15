@@ -1,30 +1,42 @@
-# English Buddy AI
+# Fluentia: ফ্রিতে অনলাইনে চালু করার গাইড
 
-A responsive English-learning PWA with a level-based AI speaking partner, vocabulary expansion, quizzes, and optional Supabase email authentication.
+খরচ ০ টাকা: Netlify ফ্রি প্ল্যান + Google Gemini ফ্রি এআই। ডোমেইন হবে `তোমার-নাম.netlify.app`। (.com কিনতে হয়, ফ্রি পাওয়া যায় না। পরে চাইলে যোগ করা যাবে।)
 
-## Features
-- Six progressive learning levels: Beginner, Elementary, Intermediate, Upper-Intermediate, Advanced, Expert.
-- Level-matched conversation examples and AI replies/corrections.
-- AI voice replies (browser speech synthesis) and speech-to-text where supported.
-- Vocabulary generated in batches of 20 when the AI server is configured. The interface is designed for a growing 10,000+ word library; generated words are filtered against words already seen on that device.
-- Sign up / log in UI backed by Supabase Auth when configured.
-- PWA manifest and service worker.
+ফোল্ডারে আছে:
+- `index.html`: পুরো ওয়েবসাইট
+- `netlify/functions/ai.js`: এআই টিউটরের ছোট সার্ভার ফাংশন (key এখানে গোপন থাকে)
+- `netlify.toml`: Netlify-র সেটিং
 
-## Run locally
-Requires Node.js 18+.
+## ধাপ ১: ফ্রি Gemini key নাও
+1. aistudio.google.com এ Google অ্যাকাউন্ট দিয়ে ঢোকো।
+2. **Get API key → Create API key** চাপো। কার্ড লাগে না, billing চালু করবে না (করলে ফ্রি থাকবে না)।
+3. key কপি করে রাখো, কাউকে দিও না।
 
-```bash
-npm start
-```
+## ধাপ ২: GitHub-এ আপলোড
+1. github.com এ নতুন repository বানাও, নাম `fluentia`।
+2. **Add file → Upload files** দিয়ে `index.html` ও `netlify.toml` আপলোড করো।
+3. **Add file → Create new file** চাপো, নামের ঘরে লেখো `netlify/functions/ai.js`, তারপর `ai.js`-এর পুরো কোড পেস্ট করে Commit করো।
 
-Copy `.env.example` to `.env` and set environment variables in your hosting provider (or load them locally with your preferred environment-variable tool):
-- `OPENAI_API_KEY` — required for live Buddy replies and vocabulary generation.
-- `OPENAI_MODEL` — optional; defaults to `gpt-4o-mini`.
-- `SUPABASE_URL` and `SUPABASE_ANON_KEY` — required for real email sign-up/login. Create a Supabase project, enable Email auth, and configure the allowed site URL/redirect URLs. Never put the Supabase service-role key or OpenAI key in browser code.
-- `PORT` — optional.
+## ধাপ ৩: Netlify-তে চালু করো (Free plan)
+1. app.netlify.com এ GitHub দিয়ে সাইন আপ করো।
+2. **Add new project → Import an existing project → GitHub** থেকে `fluentia` বেছে নাও, সেটিং না বদলে **Deploy** চাপো।
+3. **Project configuration → Environment variables** এ যোগ করো: `GEMINI_API_KEY` = তোমার key
+4. **Deploys → Trigger deploy** দিয়ে আবার ডিপ্লয় করো।
+5. লিংকের নাম বদলাতে **Project configuration → General → Project name** এ নাম দাও, লিংক হবে `নাম.netlify.app`।
 
-## Deploy
-Deploy this Node.js project to a host that runs Node servers (not static-only hosting). Set the environment variables in the host dashboard. Add your deployed HTTPS domain to Supabase Auth's Site URL and Redirect URLs. The app's `/api/chat`, `/api/vocabulary`, and `/api/auth/*` endpoints are served by `server.js`.
+## ধাপ ৪: পরীক্ষা
+- সাইট খুলে Speak ট্যাবে টিউটরের প্রশ্ন আসছে কি না দেখো।
+- Account → **Test voice** দিয়ে ভয়েস পরীক্ষা করো।
+- মাইকের জন্য ব্রাউজারে Allow করতে হবে। Chrome-এ সবচেয়ে ভালো চলে।
 
-## Important
-The starter ZIP is source code, not a hosted live service. AI replies, generated vocabulary and real account creation work only after the server is deployed and the relevant secrets are configured. Without Supabase settings, the sign-up screen will explain that account service is not configured. The 10,000+ target is a scalable generated vocabulary library, not 10,000 hand-written entries bundled into this ZIP. Previously seen generated words are tracked on the learner's device to reduce repeats.
+## সমস্যা হলে
+- **"AI unavailable":** key ঠিক বসেছে কি না দেখো এবং env variable বসানোর পরে আবার ডিপ্লয় করেছ কি না দেখো।
+- **মডেল error:** AI Studio-তে ফ্রি মডেলের নাম দেখে `GEMINI_MODEL` নামে env variable বসাও। ডিফল্ট `gemini-flash-latest`।
+- **কিছুক্ষণ পর এআই চলছে না:** ফ্রি কোটা শেষ। সীমা প্রতি প্রজেক্টে ধরা হয়, তাই সব ব্যবহারকারী একই কোটা ভাগ করে। কিছু সময় পরে আবার চলবে।
+
+## জেনে রাখো
+- ফ্রি Gemini-তে পাঠানো লেখা Google তাদের প্রোডাক্ট উন্নত করতে ব্যবহার করতে পারে। ব্যবহারকারীদের ব্যক্তিগত তথ্য লিখতে নিরুৎসাহিত করো।
+- Netlify ফ্রিতে মাসে ৩০০ ক্রেডিট। শেষ হলে সাইট পজ হয়, বাড়তি বিল আসে না।
+- অ্যাকাউন্ট ও XP ব্যবহারকারীর নিজের ব্রাউজারে থাকে।
+- ব্যানারের ছবিগুলো তোমার দেওয়া। পাবলিক করার আগে ব্যবহারের অধিকার নিশ্চিত করে নিও।
+- পরে বেশি ব্যবহারকারী হলে `ANTHROPIC_API_KEY` বসিয়ে Claude দিয়ে চালানো যায়।
